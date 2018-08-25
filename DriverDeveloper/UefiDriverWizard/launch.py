@@ -1,7 +1,7 @@
 ## @file
 # Main entry point and code generator for UEFI Driver Wizard
 #
-# Copyright (c) 2012 - 2014, Intel Corporation. All rights reserved.<BR>
+# Copyright (c) 2012 - 2018, Intel Corporation. All rights reserved.<BR>
 #
 # This program and the accompanying materials are licensed and made available
 # under the terms and conditions of the BSD License which accompanies this
@@ -49,10 +49,10 @@ class MyApp(wx.App):
     self.frame = frame
     self.SetTopWindow(frame)
     self.WorkspacePath = ''
-    icon = wx.Icon(os.path.join(os.path.abspath(sys.path[0]), 'Logo.ico'), wx.BITMAP_TYPE_ICO)
-#    image = wx.Image(os.path.join(os.path.abspath(sys.path[0]), 'Logo.png'), wx.BITMAP_TYPE_PNG)
-#    image = image.Scale(40,40)
-#    icon = wx.IconFromBitmap (image.ConvertToBitmap())
+#    icon = wx.Icon(os.path.join(os.path.abspath(sys.path[0]), 'Logo.ico'), wx.BITMAP_TYPE_ICO)
+    image = wx.Image(os.path.join(os.path.abspath(sys.path[0]), 'Logo.png'), wx.BITMAP_TYPE_PNG)
+    image = image.Scale(40,40)
+    icon = wx.Icon (image.ConvertToBitmap())
     frame.SetIcon(icon)
     frame.Show(True)
     if Config.WorkspacePath <> '':

@@ -26,9 +26,9 @@ ID_LICENSE = 1008
 class UefiDriverWizard ( wx.Frame ):
 
   def __init__( self, parent ):
-    wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"UEFI 2.3.1 Driver Wizard", pos = wx.DefaultPosition, size = wx.Size( 700,760 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+    wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"UEFI 2.3.1 Driver Wizard", pos = wx.DefaultPosition, size = wx.Size( 600,360 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
-    self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+    self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
     bSizer3 = wx.BoxSizer( wx.VERTICAL )
 
@@ -37,38 +37,38 @@ class UefiDriverWizard ( wx.Frame ):
 
     self.SetSizer( bSizer3 )
     self.Layout()
-    self.MainStatusBar = self.CreateStatusBar( 1, wx.ST_SIZEGRIP, wx.ID_ANY )
+    self.MainStatusBar = self.CreateStatusBar( 1, wx.STB_SIZEGRIP, wx.ID_ANY )
     self.MainMenuBar = wx.MenuBar( 0 )
     self.file = wx.Menu()
     self.openWorkspace = wx.MenuItem( self.file, ID_OPEN_WORKSPACE, u"&Open WORKSPACE"+ u"\t" + u"CTRL+O", u"Open EDK II Workspace", wx.ITEM_NORMAL )
-    self.file.AppendItem( self.openWorkspace )
+    self.file.Append( self.openWorkspace )
 
     self.newUefiDriver = wx.MenuItem( self.file, ID_NEW_UEFI_DRIVER, u"&New UEFI Driver"+ u"\t" + u"CTRL+N", u"Create a new UEFI Driver", wx.ITEM_NORMAL )
-    self.file.AppendItem( self.newUefiDriver )
+    self.file.Append( self.newUefiDriver )
 
     self.newPackage = wx.MenuItem( self.file, ID_NEW_PACKAGE, u"New Pac&kage"+ u"\t" + u"CTRL+K", u"Create a new EDK II Package", wx.ITEM_NORMAL )
-    self.file.AppendItem( self.newPackage )
+    self.file.Append( self.newPackage )
 
     self.newProtocol = wx.MenuItem( self.file, ID_NEW_PROTOCOL, u"New &Protocol"+ u"\t" + u"CTRL+P", u"Create a new Protocol in an EDK II Package", wx.ITEM_NORMAL )
-    self.file.AppendItem( self.newProtocol )
+    self.file.Append( self.newProtocol )
 
     self.newGuid = wx.MenuItem( self.file, ID_NEW_GUID, u"New &GUID"+ u"\t" + u"CTRL+G", u"Create a new GUID in an EDK II Package", wx.ITEM_NORMAL )
-    self.file.AppendItem( self.newGuid )
+    self.file.Append( self.newGuid )
 
     self.newLibraryClass = wx.MenuItem( self.file, ID_NEW_LIBRARY_CLASS, u"New &Library Class"+ u"\t" + u"CTRL+L", u"Create a new Library Class in an EDK II Package", wx.ITEM_NORMAL )
-    self.file.AppendItem( self.newLibraryClass )
+    self.file.Append( self.newLibraryClass )
 
     self.exit = wx.MenuItem( self.file, ID_EXIT, u"E&xit", u"Exit UEFI Driver Wizard", wx.ITEM_NORMAL )
-    self.file.AppendItem( self.exit )
+    self.file.Append( self.exit )
 
     self.MainMenuBar.Append( self.file, u"&File" )
 
     self.help = wx.Menu()
     self.about = wx.MenuItem( self.help, ID_ABOUT, u"&About", u"About UEFI Driver Wizard", wx.ITEM_NORMAL )
-    self.help.AppendItem( self.about )
+    self.help.Append( self.about )
 
     self.license = wx.MenuItem( self.help, ID_LICENSE, u"&License", u"License for UEFI Driver Wizard", wx.ITEM_NORMAL )
-    self.help.AppendItem( self.license )
+    self.help.Append( self.license )
 
     self.MainMenuBar.Append( self.help, u"&Help" )
 
@@ -130,7 +130,7 @@ class NewUefiDriver ( wx.Dialog ):
   def __init__( self, parent ):
     wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"New UEFI Driver", pos = wx.DefaultPosition, size = wx.Size( 600,680 ), style = wx.DEFAULT_DIALOG_STYLE )
 
-    self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+    self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
     bSizer11 = wx.BoxSizer( wx.VERTICAL )
 
@@ -146,7 +146,7 @@ class NewUefiDriver ( wx.Dialog ):
 
     self.m_staticText82 = wx.StaticText( self, wx.ID_ANY, u"    UEFI Driver Path", wx.DefaultPosition, wx.DefaultSize, 0 )
     self.m_staticText82.Wrap( -1 )
-    self.m_staticText82.SetToolTipString( u"The path to a folder where the UEFI Driver Wizard \ncreates a new UEFI Driver.  The path must be in the\ncurrently selected WORKSPACE.  The UEFI Driver \nWizard creates a new folder for the UEFI Driver if \nthe folder does not exist.\n" )
+    self.m_staticText82.SetToolTip( u"The path to a folder where the UEFI Driver Wizard \ncreates a new UEFI Driver.  The path must be in the\ncurrently selected WORKSPACE.  The UEFI Driver \nWizard creates a new folder for the UEFI Driver if \nthe folder does not exist.\n" )
 
     fgSizer92.Add( self.m_staticText82, 1, wx.ALIGN_CENTER_VERTICAL|wx.EXPAND|wx.ALL, 5 )
 
@@ -163,7 +163,7 @@ class NewUefiDriver ( wx.Dialog ):
 
     self.m_staticText8 = wx.StaticText( self, wx.ID_ANY, u"  UEFI Driver Name", wx.DefaultPosition, wx.DefaultSize, 0 )
     self.m_staticText8.Wrap( -1 )
-    self.m_staticText8.SetToolTipString( u"The name of the UEFI Driver.  Is not allowed to \ncontain spaces or special characters.  This name \nis used to generate the file names for the UEFI \nDriver source files as well as generated names \nfor C functions and variables.\n" )
+    self.m_staticText8.SetToolTip( u"The name of the UEFI Driver.  Is not allowed to \ncontain spaces or special characters.  This name \nis used to generate the file names for the UEFI \nDriver source files as well as generated names \nfor C functions and variables.\n" )
 
     fgSizer9.Add( self.m_staticText8, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 5 )
 
@@ -178,7 +178,7 @@ class NewUefiDriver ( wx.Dialog ):
 
     self.m_staticText83 = wx.StaticText( self, wx.ID_ANY, u"UEFI Driver Version", wx.DefaultPosition, wx.DefaultSize, 0 )
     self.m_staticText83.Wrap( -1 )
-    self.m_staticText83.SetToolTipString( u"The version of the UEFI Driver that is declared \nin the [Defines] section of the INF file.  Must be\na floating point value (i.e. 1.27)\n" )
+    self.m_staticText83.SetToolTip( u"The version of the UEFI Driver that is declared \nin the [Defines] section of the INF file.  Must be\na floating point value (i.e. 1.27)\n" )
 
     fgSizer93.Add( self.m_staticText83, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL|wx.ALIGN_CENTER_HORIZONTAL, 5 )
 
@@ -193,7 +193,7 @@ class NewUefiDriver ( wx.Dialog ):
 
     self.m_staticText81 = wx.StaticText( self, wx.ID_ANY, u"   UEFI Driver GUID", wx.DefaultPosition, wx.DefaultSize, 0 )
     self.m_staticText81.Wrap( -1 )
-    self.m_staticText81.SetToolTipString( u"The globally unique identifier for this UEFI Driver \nin registry format\n\n    (i.e. 8ed7d500-4582-11e1-a3a9-8c02263c353d).  \n\nIf a UEFI Driver is backwards compatible with a \nprevious version of a UEFI Driver, then the same \nGUID may be used with a higher Version value.  \nIf a UEFI Driver is new or not backwards compatible \nwith a previous version, then a new GUID must be generated." )
+    self.m_staticText81.SetToolTip( u"The globally unique identifier for this UEFI Driver \nin registry format\n\n    (i.e. 8ed7d500-4582-11e1-a3a9-8c02263c353d).  \n\nIf a UEFI Driver is backwards compatible with a \nprevious version of a UEFI Driver, then the same \nGUID may be used with a higher Version value.  \nIf a UEFI Driver is new or not backwards compatible \nwith a previous version, then a new GUID must be generated." )
 
     fgSizer91.Add( self.m_staticText81, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 5 )
 
@@ -214,7 +214,7 @@ class NewUefiDriver ( wx.Dialog ):
     self.UefiDriverType = wx.RadioBox( self, wx.ID_ANY, u"UEFI Driver Type", wx.DefaultPosition, wx.Size( -1,-1 ), UefiDriverTypeChoices, 3, wx.RA_SPECIFY_ROWS )
     self.UefiDriverType.SetSelection( 0 )
     self.UefiDriverType.SetFont( wx.Font( wx.NORMAL_FONT.GetPointSize(), 70, 90, 90, False, wx.EmptyString ) )
-    self.UefiDriverType.SetToolTipString( u"Device driver - A driver that follows the UEFI driver model. This type of driver produces one or more \ndriver handles or driver image handles by installing one or more instances of the Driver Binding Protocol \ninto the handle database. This type of driver does not create any child handles when the Start() service of \nhe Driver Binding Protocol is called. Instead, it only adds additional I/O protocols to existing controller \nhandles.\n\nBus driver - A driver that follows the UEFI driver model. This type of driver produces one or more \ndriver handles or driver image handles by installing one or more instances of the Driver Binding Protocol \nin the handle database. This type of driver creates new child handles when the Start() service of the \nDriver Binding Protocol is called. It also adds I/O protocols to these newly created child handles.\n\nHybrid driver - A driver that follows the UEFI driver model and shares characteristics with both device \ndrivers and bus drivers. This distinction means that the Start() service of the Driver Binding Protocol adds \nI/O protocols to existing handles and creates child handles.\n\nRoot bridge driver - A driver that creates one or physical controller handles that contain a Device \nPath Protocol and a protocol that is a software abstraction for the I/O services provided by a root \nbus produced by a core chipset. The most common root bridge driver is one that creates handles for \nthe PCI root bridges in the platform that support the Device Path Protocol and the PCI Root Bridge I/O Protocol.\n\nService driver - A driver that produces one or more protocols on one or more new service handles and \nreturns EFI_SUCCESS from its entry point.\n\nInitializing driver - A driver that does not create any handles and does not add any protocols to the handle \ndatabase. Instead, this type of driver performs some initialization operations and returns an error code so \nthe driver is unloaded from system memory." )
+    self.UefiDriverType.SetToolTip( u"Device driver - A driver that follows the UEFI driver model. This type of driver produces one or more \ndriver handles or driver image handles by installing one or more instances of the Driver Binding Protocol \ninto the handle database. This type of driver does not create any child handles when the Start() service of \nhe Driver Binding Protocol is called. Instead, it only adds additional I/O protocols to existing controller \nhandles.\n\nBus driver - A driver that follows the UEFI driver model. This type of driver produces one or more \ndriver handles or driver image handles by installing one or more instances of the Driver Binding Protocol \nin the handle database. This type of driver creates new child handles when the Start() service of the \nDriver Binding Protocol is called. It also adds I/O protocols to these newly created child handles.\n\nHybrid driver - A driver that follows the UEFI driver model and shares characteristics with both device \ndrivers and bus drivers. This distinction means that the Start() service of the Driver Binding Protocol adds \nI/O protocols to existing handles and creates child handles.\n\nRoot bridge driver - A driver that creates one or physical controller handles that contain a Device \nPath Protocol and a protocol that is a software abstraction for the I/O services provided by a root \nbus produced by a core chipset. The most common root bridge driver is one that creates handles for \nthe PCI root bridges in the platform that support the Device Path Protocol and the PCI Root Bridge I/O Protocol.\n\nService driver - A driver that produces one or more protocols on one or more new service handles and \nreturns EFI_SUCCESS from its entry point.\n\nInitializing driver - A driver that does not create any handles and does not add any protocols to the handle \ndatabase. Instead, this type of driver performs some initialization operations and returns an error code so \nthe driver is unloaded from system memory." )
 
     bSizer20.Add( self.UefiDriverType, 0, wx.ALL, 5 )
 
@@ -357,7 +357,7 @@ class NewUefiDriver ( wx.Dialog ):
 
   def CancelOnButtonClick( self, event ):
     event.Skip()
-  
+
 
 ###########################################################################
 ## Class UefiDriverModelOptionalFeatures
@@ -368,7 +368,7 @@ class UefiDriverModelOptionalFeatures ( wx.Dialog ):
   def __init__( self, parent ):
     wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"UEFI Driver Model Optional Features", pos = wx.DefaultPosition, size = wx.Size( 600,680 ), style = wx.DEFAULT_DIALOG_STYLE )
 
-    self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+    self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
     bSizer13 = wx.BoxSizer( wx.VERTICAL )
 
@@ -465,7 +465,7 @@ class UefiDriverModelOptionalFeatures ( wx.Dialog ):
 
   def CancelOnButtonClick( self, event ):
     event.Skip()
-  
+
 
 ###########################################################################
 ## Class UefiDriverModelConsumedProtocols
@@ -476,7 +476,7 @@ class UefiDriverModelConsumedProtocols ( wx.Dialog ):
   def __init__( self, parent ):
     wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"UEFI Driver Consumed Protocol", pos = wx.DefaultPosition, size = wx.Size( 600,680 ), style = wx.DEFAULT_DIALOG_STYLE )
 
-    self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+    self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
     bSizer15 = wx.BoxSizer( wx.VERTICAL )
 
@@ -545,7 +545,7 @@ class UefiDriverModelConsumedProtocols ( wx.Dialog ):
 
   def CancelOnButtonClick( self, event ):
     event.Skip()
-  
+
 
 ###########################################################################
 ## Class UefiDriverModelProducedProtocols
@@ -556,7 +556,7 @@ class UefiDriverModelProducedProtocols ( wx.Dialog ):
   def __init__( self, parent ):
     wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"UEFI Driver Produced Protocols", pos = wx.DefaultPosition, size = wx.Size( 600,680 ), style = wx.DEFAULT_DIALOG_STYLE )
 
-    self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+    self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
     bSizer17 = wx.BoxSizer( wx.VERTICAL )
 
@@ -646,7 +646,7 @@ class UefiDriverModelProducedProtocols ( wx.Dialog ):
 
   def CancelOnButtonClick( self, event ):
     event.Skip()
-  
+
 
 ###########################################################################
 ## Class NewPackage
@@ -657,7 +657,7 @@ class NewPackage ( wx.Dialog ):
   def __init__( self, parent ):
     wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"New Package", pos = wx.DefaultPosition, size = wx.Size( 600,300 ), style = wx.DEFAULT_DIALOG_STYLE )
 
-    self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+    self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
     bSizer19 = wx.BoxSizer( wx.VERTICAL )
 
@@ -805,7 +805,7 @@ class NewPackage ( wx.Dialog ):
 
   def CancelOnButtonClick( self, event ):
     event.Skip()
-  
+
 
 ###########################################################################
 ## Class NewProtocol
@@ -816,7 +816,7 @@ class NewProtocol ( wx.Dialog ):
   def __init__( self, parent ):
     wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"New Protocol", pos = wx.DefaultPosition, size = wx.Size( 600,300 ), style = wx.DEFAULT_DIALOG_STYLE )
 
-    self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+    self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
     bSizer21 = wx.BoxSizer( wx.VERTICAL )
 
@@ -923,7 +923,7 @@ class NewProtocol ( wx.Dialog ):
 
   def CancelOnButtonClick( self, event ):
     event.Skip()
-  
+
 
 ###########################################################################
 ## Class NewGuid
@@ -934,7 +934,7 @@ class NewGuid ( wx.Dialog ):
   def __init__( self, parent ):
     wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"New GUID", pos = wx.DefaultPosition, size = wx.Size( 600,300 ), style = wx.DEFAULT_DIALOG_STYLE )
 
-    self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+    self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
     bSizer23 = wx.BoxSizer( wx.VERTICAL )
 
@@ -1041,7 +1041,7 @@ class NewGuid ( wx.Dialog ):
 
   def CancelOnButtonClick( self, event ):
     event.Skip()
-  
+
 
 ###########################################################################
 ## Class NewLibraryClass
@@ -1052,7 +1052,7 @@ class NewLibraryClass ( wx.Dialog ):
   def __init__( self, parent ):
     wx.Dialog.__init__ ( self, parent, id = wx.ID_ANY, title = u"New Library Class", pos = wx.DefaultPosition, size = wx.Size( 600,300 ), style = wx.DEFAULT_DIALOG_STYLE )
 
-    self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+    self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
     bSizer25 = wx.BoxSizer( wx.VERTICAL )
 
@@ -1135,5 +1135,3 @@ class NewLibraryClass ( wx.Dialog ):
 
   def CancelOnButtonClick( self, event ):
     event.Skip()
-  
-
